@@ -13,6 +13,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 //import com.google.firebase.auth.FirebaseAuth;
 //import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.sourcey.KauLempung.Adapter.ItemAdapter;
 import com.sourcey.KauLempung.Model.Item;
 
@@ -24,20 +26,20 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
 
-//    FirebaseAuth.AuthStateListener listener;
-//    private FirebaseAuth mAuth;
-//
-//    @Override
+    FirebaseAuth.AuthStateListener listener;
+    private FirebaseAuth mAuth;
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        mAuth = FirebaseAuth.getInstance();
-//        FirebaseUser user = mAuth.getCurrentUser();
-//        if (user == null){
-//            Intent intent = new Intent(this, LoginActivity.class);
-//            startActivity(intent);
-//        } else {
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user == null) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        } else {
             exampleItems = new ArrayList<>();
             exampleItems.add(new Item(R.drawable.dandang, "Dandang", "Rp55.000"));
             exampleItems.add(new Item(R.drawable.gerabah, "Gerabah", "Rp70.000"));
@@ -45,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
             exampleItems.add(new Item(R.drawable.panci, "Panci", "Rp25.000"));
             buildRecyclerView();
         }
+    }
 
 //
     @Override
