@@ -55,6 +55,15 @@
             android:text="Login"
             android:textColor="#730000"/>
 
+        <TextView
+            android:id="@+id/lupapassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="18dip"
+            android:text="Lupa Password?"
+            android:gravity="center"
+            android:textSize="14dip"/>
+
         <TextView android:id="@+id/link_signup"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
