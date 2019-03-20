@@ -1,5 +1,7 @@
 package com.sourcey.KauLempung;
 
+import android.annotation.SuppressLint;
+import android.app.DownloadManager;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -9,12 +11,19 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 //import com.google.firebase.auth.FirebaseAuth;
 //import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.sourcey.KauLempung.Adapter.ItemAdapter;
 import com.sourcey.KauLempung.Model.Item;
 
@@ -26,13 +35,45 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
 
+    EditText search;
+
+
     FirebaseAuth.AuthStateListener listener;
     private FirebaseAuth mAuth;
 
+    @SuppressLint("WrongViewCast") //dari search
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        search = (EditText)findViewById(R.id.search);
+
+        search.addTextChangedListener(new TextWatcher() { //untuk SEARCH
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (!s.toString().isEmpty())
+                {
+                    searching(s.tiString());
+                }
+                else
+                {
+                    searching("");
+                }
+
+            }
+        });
+
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
@@ -130,4 +171,33 @@ public class MainActivity extends AppCompatActivity {
             mRecyclerView.setLayoutManager(new GridLayoutManager(this,2));
         }
     }
+
+
+    public void searching (String s){
+        Query query = databaseRerefence.orderByChild("name")
+                .starAt (s)
+                .endAt (s + "\uf8ff");
+        
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (DataSnapshot.hasChildren())
+                {
+                    arrayList.clear();
+                    for (DataSnapshot dss: dataSnapshot.getChildren())
+                    {
+
+                    }
+                }
+            }
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        
+    }
+
 }
