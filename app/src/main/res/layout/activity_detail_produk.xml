@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sourcey.KauLempung.detailProduk">
+
+
+    <ImageView
+        android:id="@+id/fotoDetail"
+        android:layout_width="201dp"
+        android:layout_height="198dp"
+        android:layout_below="@+id/namaProdusen"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="107dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="103dp" />
+
+
+    <TextView
+        android:id="@+id/namaBarang"
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:layout_below="@+id/fotoDetail"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/namaProdusen"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:gravity="center"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/harga"
+        android:layout_width="409dp"
+        android:layout_height="32dp"
+        android:layout_below="@+id/namaBarang"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="0dp"
+        android:gravity="center"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/alamatDetail"
+        android:layout_width="197dp"
+        android:layout_height="87dp"
+        android:layout_below="@+id/harga"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/teleponDetail"
+        android:layout_width="206dp"
+        android:layout_height="85dp"
+        android:layout_below="@+id/harga"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="0dp"
+        android:layout_toEndOf="@+id/alamatDetail"
+        android:gravity="center"
+        android:text="TextView" />
+
+
+</RelativeLayout>

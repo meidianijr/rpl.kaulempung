@@ -45,6 +45,10 @@ public class MainActivity extends AppCompatActivity {
             exampleItems.add(new Item(R.drawable.gerabah, "Gerabah", "Rp70.000"));
             exampleItems.add(new Item(R.drawable.guci, "Guci", "Rp95.000"));
             exampleItems.add(new Item(R.drawable.panci, "Panci", "Rp25.000"));
+            exampleItems.add(new Item(R.drawable.teko, "Teko", "Rp30.000"));
+            exampleItems.add(new Item(R.drawable.wajan, "Wajan", "Rp40.000"));
+            exampleItems.add(new Item(R.drawable.gelas, "Gelas","Rp10.000"));
+            exampleItems.add(new Item(R.drawable.pirring, "Piring", "Rp15.000"));
             buildRecyclerView();
         }
     }
@@ -129,5 +133,10 @@ public class MainActivity extends AppCompatActivity {
         } else if (newConfig.orientation==Configuration.ORIENTATION_PORTRAIT){
             mRecyclerView.setLayoutManager(new GridLayoutManager(this,2));
         }
+    }
+
+    private void initializeData(){
+        String alamatGerabah = getResources().getString(R.string.alamat_gerabah);
+
     }
 }
