@@ -5,14 +5,14 @@
     <string name="action_settings">Settings</string>
 
     <string-array name="produsen">
-        <string name="produsen_gerabah">Dadang Zarkasi</string>
-        <string name="produsen_gelas">Asep Supriatna</string>
-        <string name="produsen_guci">Sutisno</string>
-        <string name="produsen_pirring">Asep Saepudin</string>
-        <string name="produsen_dandang">Dodi</string>
-        <string name="produsen_teko">Tono</string>
-        <string name="produsen_wajan">Andi</string>
-        <string name="produsen_panci">Syaefulloh</string>
+        <item>Dadang Zarkasi</item>>
+        <item>Asep Supriatna</item>
+        <item>Sutisno</item>
+        <item>Asep Saepudin</item>
+        <item>Dodi</item>
+        <item>Tono</item>
+        <item>Andi</item>
+        <item>Syaefulloh</item>
     </string-array>
 
     <!---<string name="produsen_gerabah">Dadang Zarkasi</string>
@@ -22,8 +22,18 @@
     <string name="produsen_dandang">Dodi</string>
     <string name="produsen_teko">Tono</string>
     <string name="produsen_wajan">Andi</string>
-    <string name="produsen_panci">Syaefulloh</string>
-
+    <string name="produsen_panci">Syaefulloh</string>-->
+    
+    <string-array name="alamat">
+        <item>Desa Anjun, Kec. Plered</item>
+        <item>Jl. Raya Anjun-Plered-Purwakarta, Anjun, Plered, Kabupaten Purwakarta, Jawa Barat 41162</item>
+        <item>Plered</item>
+        <item>Plered</item>
+        <item>Plered</item>
+        <item>Plered</item>
+        <item>Plered</item>
+    </string-array>
+<!---
     <string name="alamat_gerabah">Desa Anjun, Kec. Plered</string>
     <string name="alamat_gelas">Jl. Raya Anjun-Plered-Purwakarta, Anjun, Plered, Kabupaten Purwakarta, Jawa Barat 41162</string>
     <string name="alamat_guci">Plered</string>
