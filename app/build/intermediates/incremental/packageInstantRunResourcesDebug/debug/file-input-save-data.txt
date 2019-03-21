@@ -1,0 +1,7 @@
+#Internal package file, do not edit.
+#Thu Mar 21 08:43:57 ICT 2019
+0.baseType=DIRECTORY
+0.base=C\:\\Users\\Kendry Ayu\\Downloads\\0.RPL\\CLONE\\KauLempung\\app\\build\\intermediates\\assets\\debug
+0.path=fonts/OpenSans-Regular.ttf
+0.set=ASSET
+count=1

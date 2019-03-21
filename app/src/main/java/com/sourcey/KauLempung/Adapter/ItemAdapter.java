@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import com.sourcey.KauLempung.Model.Item;
 import com.sourcey.KauLempung.R;
-import com.sourcey.KauLempung.detailProduk;
 
 import java.util.ArrayList;
 
@@ -66,14 +65,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intent = new Intent(mContext, detailProduk.class);
-                intent.putExtra("nama", currentItem.getText().toString());
-                intent.putExtra("harga", currentItem.getText2().toString());
-                intent.putExtra("foto",currentItem.getmImageResources());
-                mContext.startActivity(intent);
-
-
 //                Intent intent = new Intent(mContext,DetailActivity.class);
 //                intent.putExtra("gambar",String.valueOf(currentItem.getmImageResources()));
 //                intent.putExtra("nama",currentItem.getText());

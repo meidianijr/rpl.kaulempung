@@ -5,39 +5,105 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="26"
-        android:targetSdkVersion="28" />
+        android:minSdkVersion="16"
+        android:targetSdkVersion="27" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
+    <!-- <uses-sdk android:minSdkVersion="14"/> -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" /> <!-- Required by older versions of Google Play services to create IID tokens -->
-    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <meta-data
+        android:name="android.support.VERSION"
+        android:value="25.3.1" />
 
     <application
         android:allowBackup="true"
-        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
         android:debuggable="true"
-        android:icon="@mipmap/ic_launcher"
+        android:hardwareAccelerated="false"
+        android:icon="@drawable/kaulempung"
         android:label="@string/app_name"
+        android:largeHeap="true"
+        android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.sourcey.KauLempung.detailProduk" />
         <activity
-            android:name="com.sourcey.KauLempung.MainActivity"
+            android:name="com.sourcey.KauLempung.User.MainActivity"
             android:label="@string/app_name" />
         <activity
             android:name="com.sourcey.KauLempung.LoginActivity"
-            android:theme="@style/AppTheme.Dark" >
+            android:theme="@style/AppTheme.Dark" />
+        <activity
+            android:name="com.sourcey.KauLempung.SignupActivity"
+            android:theme="@style/AppTheme.Dark" />
+        <activity
+            android:name="com.sourcey.KauLempung.Admin.KatalogProduk"
+            android:label="Katalog Produk"
+            android:parentActivityName="com.sourcey.KauLempung.Admin.HomeAdmin" />
+        <activity
+            android:name="com.sourcey.KauLempung.Admin.HomeAdmin"
+            android:label="Home Admin" />
+        <activity
+            android:name="com.sourcey.KauLempung.Admin.TambahKatalog"
+            android:label="Tambah Produk"
+            android:parentActivityName="com.sourcey.KauLempung.Admin.KatalogProduk" />
+        <!-- <activity -->
+        <!-- android:name=".Admin.EditKatalog" -->
+        <!-- android:label="Edit Produk" -->
+        <!-- android:parentActivityName=".Admin.KatalogProduk" /> -->
+        <!-- <activity -->
+        <!-- android:name=".Admin.DetailProduk" -->
+        <!-- android:label="Detail Produk" -->
+        <!-- android:parentActivityName=".Admin.KatalogProduk" /> -->
+        <!-- <activity -->
+        <!-- android:name=".Admin.DaftarUser" -->
+        <!-- android:label="Daftar User" -->
+        <!-- android:parentActivityName=".Admin.HomeAdmin" /> -->
+        <!-- <activity -->
+        <!-- android:name=".Admin.DetailUser" -->
+        <!-- android:label="Detail User" -->
+        <!-- android:parentActivityName=".Admin.DaftarUser" /> -->
+        <!-- <activity -->
+        <!-- android:name=".Admin.ListPesanan" -->
+        <!-- android:label="List Pemesanan" -->
+        <!-- android:parentActivityName=".Admin.HomeAdmin" /> -->
+        <activity
+            android:name="com.sourcey.KauLempung.User.ProfilUser"
+            android:label="Profil User"
+            android:parentActivityName="com.sourcey.KauLempung.User.DaftarKatalog" />
+        <activity
+            android:name="com.sourcey.KauLempung.User.EditProfile"
+            android:label="Edit Profil"
+            android:parentActivityName="com.sourcey.KauLempung.User.ProfilUser" />
+        <activity android:name="com.sourcey.KauLempung.User.DaftarKatalog" />
+        <activity
+            android:name="com.sourcey.KauLempung.User.DetailProdukUser"
+            android:label="Detail Produk"
+            android:parentActivityName="com.sourcey.KauLempung.User.DaftarKatalog" />
+        <activity
+            android:name="com.sourcey.KauLempung.SplashScreen"
+            android:theme="@style/Theme.AppCompat.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- <activity android:name=".Admin.KonfirmasiPembayaranAdmin" -->
+        <!-- android:label="Konfirmasi Pembayaran Admin" -->
+        <!-- android:parentActivityName=".Admin.ListPesanan" -->
+        <!-- &gt;</activity> -->
         <activity
-            android:name="com.sourcey.KauLempung.SignupActivity"
-            android:theme="@style/AppTheme.Dark" />
+            android:name="com.sourcey.KauLempung.User.KirimPesan"
+            android:label="Hubungi Penjual"
+            android:parentActivityName="com.sourcey.KauLempung.User.DaftarKatalog" />
+
+        <meta-data
+            android:name="android.support.VERSION"
+            android:value="26.1.0" />
+
         <activity
             android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
             android:excludeFromRecents="true"
@@ -53,56 +119,8 @@
                 android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
                 android:value="com.google.firebase.components.ComponentRegistrar" />
             <meta-data
-                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
                 android:value="com.google.firebase.components.ComponentRegistrar" />
-            <meta-data
-                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
-                android:value="com.google.firebase.components.ComponentRegistrar" />
-        </service>
-
-        <receiver
-            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
-            android:enabled="true"
-            android:exported="false" >
-        </receiver>
-        <receiver
-            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
-            android:enabled="true"
-            android:exported="true"
-            android:permission="android.permission.INSTALL_PACKAGES" >
-            <intent-filter>
-                <action android:name="com.android.vending.INSTALL_REFERRER" />
-            </intent-filter>
-        </receiver>
-
-        <service
-            android:name="com.google.android.gms.measurement.AppMeasurementService"
-            android:enabled="true"
-            android:exported="false" />
-        <service
-            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
-            android:enabled="true"
-            android:exported="false"
-            android:permission="android.permission.BIND_JOB_SERVICE" />
-
-        <receiver
-            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
-            android:exported="true"
-            android:permission="com.google.android.c2dm.permission.SEND" >
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-            </intent-filter>
-        </receiver>
-        <!--
-             FirebaseInstanceIdService performs security checks at runtime,
-             no need for explicit permissions despite exported="true"
-        -->
-        <service
-            android:name="com.google.firebase.iid.FirebaseInstanceIdService"
-            android:exported="true" >
-            <intent-filter android:priority="-500" >
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
-            </intent-filter>
         </service>
 
         <activity
@@ -119,9 +137,6 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-        <meta-data
-            android:name="android.support.VERSION"
-            android:value="26.1.0" />
 
         <provider
             android:name="com.android.tools.ir.server.InstantRunContentProvider"

@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-<merger version="3"><dataSet config="main"><source path="D:\rpl.kaulempung\app\src\main\assets"/><source path="D:\rpl.kaulempung\app\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="D:\rpl.kaulempung\app\src\debug\assets"/></dataSet></merger>
-=======
-<merger version="3"><dataSet config="main" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="D:\Tugas\RPL\Sprint 2 commit 1\rpl.kaulempung\app\src\main\assets"/><source path="D:\Tugas\RPL\Sprint 2 commit 1\rpl.kaulempung\app\build\intermediates\shader_assets\debug\compileDebugShaders\out"/></dataSet><dataSet config="debug" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="D:\Tugas\RPL\Sprint 2 commit 1\rpl.kaulempung\app\src\debug\assets"/></dataSet></merger>
->>>>>>> origin/master
+<merger version="3"><dataSet config="main"><source path="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\src\main\assets"><file name="fonts/OpenSans-Regular.ttf" path="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\src\main\assets\fonts\OpenSans-Regular.ttf"/></source><source path="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\src\debug\assets"/></dataSet></merger>

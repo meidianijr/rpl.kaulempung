@@ -1,17 +1,10 @@
 {
     "logs": [
         {
-<<<<<<< HEAD
-            "outputFile": "D:\\rpl.kaulempung\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-w820dp-v13\\values-w820dp-v13.xml",
+            "outputFile": "C:\\Users\\Kendry Ayu\\Downloads\\0.RPL\\CLONE\\KauLempung\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-w820dp-v13\\values-w820dp-v13.xml",
             "map": [
                 {
-                    "source": "D:\\rpl.kaulempung\\app\\src\\main\\res\\values-w820dp\\dimens.xml",
-=======
-            "outputFile": "D:\\Tugas\\RPL\\Sprint 2 commit 1\\rpl.kaulempung\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-w820dp-v13\\values-w820dp-v13.xml",
-            "map": [
-                {
-                    "source": "D:\\Tugas\\RPL\\Sprint 2 commit 1\\rpl.kaulempung\\app\\src\\main\\res\\values-w820dp\\dimens.xml",
->>>>>>> origin/master
+                    "source": "C:\\Users\\Kendry Ayu\\Downloads\\0.RPL\\CLONE\\KauLempung\\app\\src\\main\\res\\values-w820dp\\dimens.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "4",

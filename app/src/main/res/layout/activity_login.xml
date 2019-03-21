@@ -8,22 +8,22 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="56dp"
+        android:paddingTop="5dp"
         android:paddingLeft="24dp"
         android:paddingRight="24dp">
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="260dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="10dp"
             android:src="@drawable/kaulempung" />
 
         <!--  Email Label -->
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="-15dp"
             android:layout_marginBottom="8dp">
             <EditText android:id="@+id/input_email"
                 android:layout_width="match_parent"
@@ -54,15 +54,6 @@
             android:padding="12dp"
             android:text="Login"
             android:textColor="#730000"/>
-
-        <TextView
-            android:id="@+id/lupapassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="18dip"
-            android:text="Lupa Password?"
-            android:gravity="center"
-            android:textSize="14dip"/>
 
         <TextView android:id="@+id/link_signup"
             android:layout_width="fill_parent"

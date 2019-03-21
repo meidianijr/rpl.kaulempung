@@ -3,53 +3,5 @@
 
     <string name="hello_world">Disini ada Katalog!</string>
     <string name="action_settings">Settings</string>
-
-    <string-array name="produsen">
-        <item>Dadang Zarkasi</item>>
-        <item>Asep Supriatna</item>
-        <item>Sutisno</item>
-        <item>Asep Saepudin</item>
-        <item>Dodi</item>
-        <item>Tono</item>
-        <item>Andi</item>
-        <item>Syaefulloh</item>
-    </string-array>
-
-    <!---<string name="produsen_gerabah">Dadang Zarkasi</string>
-    <string name="produsen_gelas">Asep Supriatna</string>
-    <string name="produsen_guci">Sutisno</string>
-    <string name="produsen_pirring">Asep Saepudin</string>
-    <string name="produsen_dandang">Dodi</string>
-    <string name="produsen_teko">Tono</string>
-    <string name="produsen_wajan">Andi</string>
-    <string name="produsen_panci">Syaefulloh</string>-->
-    
-    <string-array name="alamat">
-        <item>Desa Anjun, Kec. Plered</item>
-        <item>Jl. Raya Anjun-Plered-Purwakarta, Anjun, Plered, Kabupaten Purwakarta, Jawa Barat 41162</item>
-        <item>Plered</item>
-        <item>Plered</item>
-        <item>Plered</item>
-        <item>Plered</item>
-        <item>Plered</item>
-    </string-array>
-<!---
-    <string name="alamat_gerabah">Desa Anjun, Kec. Plered</string>
-    <string name="alamat_gelas">Jl. Raya Anjun-Plered-Purwakarta, Anjun, Plered, Kabupaten Purwakarta, Jawa Barat 41162</string>
-    <string name="alamat_guci">Plered</string>
-    <string name="alamat_pirring">Plered</string>
-    <string name="alamat_dandang">Plered</string>
-    <string name="alamat_teko">Plered</string>
-    <string name="alamat_wajan">Plered</string>
-    <string name="alamat_panci">Plered</string>
-
-    <string name="telepon_gerabah">0813-1123-9912</string>
-    <string name="telepon_gelas">0812-3715-1826</string>
-    <string name="telepon_guci">0852-9812-0872</string>
-    <string name="telepon_pirring">0813-1918-1132</string>
-    <string name="telepon_dandang">0812-7728-9912</string>
-    <string name="telepon_teko">0812-1917-1001</string>
-    <string name="telepon_wajan">0812-1222-3893</string>
-    <string name="telepon_panci">0812-9365-8733</string>-->
-
+    <string name="title_activity_home_admin">HomeAdmin</string>
 </resources>

@@ -128,7 +128,7 @@ public class SignupActivity extends AppCompatActivity {
 
                         String uid = current_user.getUid();
 
-                        mDatabase = FirebaseDatabase.getInstance().getReference().child("User-KauLempung").child(uid);
+                        mDatabase = FirebaseDatabase.getInstance().getReference().child("KauLempung").child("user").child(uid);
                         HashMap<String, String> userMap = new HashMap<String, String>();
 
                         userMap.put("name",name);
@@ -136,6 +136,7 @@ public class SignupActivity extends AppCompatActivity {
                         userMap.put("password", password);
                         userMap.put("alamat", address);
                         userMap.put("nohp", mobile);
+                        userMap.put("role", "user");
                         userMap.put("image", "default");
 
                         mDatabase.setValue(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -211,7 +212,7 @@ public class SignupActivity extends AppCompatActivity {
         String reEnterPassword = _reEnterPasswordText.getText().toString();
 
         if (name.isEmpty() || name.length() < 3) {
-            _nameText.setError("Minimal 3 karakter");
+            _nameText.setError("Minimal image_3 karakter");
             valid = false;
         } else {
             _nameText.setError(null);
@@ -240,7 +241,7 @@ public class SignupActivity extends AppCompatActivity {
         }
 
         if (password.isEmpty() || password.length() < 4 || password.length() > 10) {
-            _passwordText.setError("Masukan password antara 4 hingga 10 karakter");
+            _passwordText.setError("Masukan password antara image_4 hingga 10 karakter");
             valid = false;
         } else {
             _passwordText.setError(null);

@@ -19,6 +19,15 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.sourcey.KauLempung.Admin.HomeAdmin;
+import com.sourcey.KauLempung.Admin.KatalogProduk;
+import com.sourcey.KauLempung.User.DaftarKatalog;
+import com.sourcey.KauLempung.User.MainActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,12 +38,12 @@ public class LoginActivity extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseAuth.AuthStateListener listener;
     ProgressDialog progressDialog;
+    DatabaseReference ref;
 
     @BindView(R.id.input_email) EditText _emailText;
     @BindView(R.id.input_password) EditText _passwordText;
     @BindView(R.id.btn_login) Button _loginButton;
     @BindView(R.id.link_signup) TextView _signupLink;
-    @BindView(R.id.lupapassword) TextView _lupapassword;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,16 +52,40 @@ public class LoginActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         progressDialog = new ProgressDialog(this);
+
         auth = FirebaseAuth.getInstance();
         listener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = auth.getCurrentUser();
                 if (user != null) {
-                    Intent move = new Intent(LoginActivity.this, MainActivity.class);
-                    move.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(move);
-                    finish();
+
+                    ref = FirebaseDatabase.getInstance().getReference().child("KauLempung").child("user").child(user.getUid()).child("role");
+                    ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            String value = dataSnapshot.getValue(String.class);
+
+                            if (value.equals("user") ){
+                                Intent move = new Intent(LoginActivity.this, DaftarKatalog.class);
+                                move.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(move);
+                                finish();
+                            }
+                            else if (value.equals("admin")){
+                                Intent move = new Intent(LoginActivity.this, HomeAdmin.class);
+                                move.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(move);
+                                finish();
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+
                 }
             }
         };
@@ -73,12 +106,6 @@ public class LoginActivity extends AppCompatActivity {
                 startActivityForResult(intent, REQUEST_SIGNUP);
                 finish();
                 overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
-            }
-        });
-        _lupapassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(LoginActivity.this, LupaPasswordActivity.class));
             }
         });
     }
@@ -122,14 +149,42 @@ public class LoginActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     //Ketika login berhasil
                     if (task.isSuccessful()) {
-                        Intent move = new Intent(LoginActivity.this, MainActivity.class);
-                        move.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(move);
-                        finish();
+//                       onAuthSuccess(task.getResult().getUser());
+                        FirebaseUser user = auth.getCurrentUser();
+                        if (user != null) {
+
+                            ref = FirebaseDatabase.getInstance().getReference().child("KauLempung").child("user").child(user.getUid()).child("role");
+                            ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    String value = dataSnapshot.getValue(String.class);
+
+                                    if (value.equals("user")){
+                                        Intent move = new Intent(LoginActivity.this, DaftarKatalog.class);
+                                        move.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                        startActivity(move);
+                                        finish();
+                                    }
+                                    else if (value.equals("admin")){
+                                        Intent move = new Intent(LoginActivity.this, HomeAdmin.class);
+                                        move.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                        startActivity(move);
+                                        finish();
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
+
+                        }
 
                         //Ketika login gagal
                     } else {
                         Toast.makeText(LoginActivity.this, "Gagal Login, Periksa username dan password anda!", Toast.LENGTH_SHORT).show();
+                        _loginButton.setEnabled(true);
                     }
 
                     //Tutup dialog ketika login berhasil atau gagal
@@ -153,6 +208,39 @@ public class LoginActivity extends AppCompatActivity {
 //                        progressDialog.dismiss();
 //                    }
 //                }, 3000);
+    }
+
+    private void onAuthSuccess(FirebaseUser user) {
+
+        if (user != null) {
+
+            ref = FirebaseDatabase.getInstance().getReference().child("KauLempung").child(user.getUid()).child("role");
+            ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    String value = dataSnapshot.getValue(String.class);
+
+                    if (value == "admin"){
+                        Intent move = new Intent(LoginActivity.this, KatalogProduk.class);
+                        move.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(move);
+                        finish();
+                    } else {
+                        Intent move1 = new Intent(LoginActivity.this, MainActivity.class);
+                        move1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(move1);
+                        finish();
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+        }
+
     }
 
 
@@ -199,7 +287,7 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         if (password.isEmpty() || password.length() < 4) {
-            _passwordText.setError("Password minimal 4 karakter!");
+            _passwordText.setError("Password minimal image_4 karakter!");
             valid = false;
         } else {
             _passwordText.setError(null);
