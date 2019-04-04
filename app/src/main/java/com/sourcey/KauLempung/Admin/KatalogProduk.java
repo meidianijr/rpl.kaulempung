@@ -95,6 +95,7 @@ public class KatalogProduk extends AppCompatActivity {
             }
         });
 
+        katalogAdapter.notifyDataSetChanged();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -125,6 +126,7 @@ public class KatalogProduk extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         deleteMakanan();
+                        finish();
                     }
                 });
 
@@ -133,6 +135,7 @@ public class KatalogProduk extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         Intent aa = new Intent(KatalogProduk.this,KatalogProduk.class);
                         startActivity(aa);
+                        finish();
                     }
                 });
 
@@ -148,22 +151,22 @@ public class KatalogProduk extends AppCompatActivity {
         swipeHelper.setLeftcolorCode(ContextCompat.getColor(this, R.color.colorRed));
 
 
-//        SwipeUtilEdit swipeHelpers = new SwipeUtilEdit(0, ItemTouchHelper.RIGHT, this) {
-//            @Override
-//            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-//                int position = viewHolder.getAdapterPosition();
-//                KatalogAdapter adapter = (KatalogAdapter) recyclerView.getAdapter();
-//
-//                Intent ag = new Intent(KatalogProduk.this, EditKatalog.class);
-//                startActivity(ag);
-//
-//                adapter.notifyDataSetChanged();
-//            }
-//        };
-//
-//        ItemTouchHelper mItemTouchHelpers = new ItemTouchHelper(swipeHelpers);
-//        mItemTouchHelpers.attachToRecyclerView(recyclerView);
-//        swipeHelpers.setLeftcolorCode(ContextCompat.getColor(this, R.color.colorGreen));
+        SwipeUtilEdit swipeHelpers = new SwipeUtilEdit(0, ItemTouchHelper.RIGHT, this) {
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                int position = viewHolder.getAdapterPosition();
+                KatalogAdapter adapter = (KatalogAdapter) recyclerView.getAdapter();
+
+                Intent ag = new Intent(KatalogProduk.this, EditKatalog.class);
+                startActivity(ag);
+
+                adapter.notifyDataSetChanged();
+            }
+        };
+
+        ItemTouchHelper mItemTouchHelpers = new ItemTouchHelper(swipeHelpers);
+        mItemTouchHelpers.attachToRecyclerView(recyclerView);
+        swipeHelpers.setLeftcolorCode(ContextCompat.getColor(this, R.color.colorGreen));
 
 
     }

@@ -99,6 +99,8 @@
             android:name="com.sourcey.KauLempung.User.KirimPesan"
             android:label="Hubungi Penjual"
             android:parentActivityName="com.sourcey.KauLempung.User.DaftarKatalog" />
+        <activity android:name="com.sourcey.KauLempung.Admin.EditKatalog" />
+        <activity android:name="com.sourcey.KauLempung.Admin.DetailKatalog" />
 
         <meta-data
             android:name="android.support.VERSION"

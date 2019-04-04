@@ -1,5 +1,6 @@
 package com.sourcey.KauLempung.User;
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -50,12 +51,14 @@ public class KirimPesan extends AppCompatActivity {
 
         String semuapesan = "Nama: " + pesan1 + "\n" + "Alamat : " + pesan2 + "\n" + "Kode Pos : " + pesan3 + "\n" + "Nama Barang : " + pesan4 + "\n" + "Jumlah Pemesanan : " + pesan5;
 
-        Intent kirimWA = new Intent(Intent.ACTION_SEND);
+//        Intent kirimWA = new Intent("android.intent.action.MAIN");
+        Intent kirimWA = new Intent();
+//        kirimWA.setComponent(new ComponentName("com.whatsapp", "com.whatsapp.Conversation"));
+        kirimWA.setAction(Intent.ACTION_SEND);
         kirimWA.setType("text/plain");
         kirimWA.putExtra(Intent.EXTRA_TEXT, semuapesan);
         kirimWA.putExtra("jid", notelepon + "@s.whatsapp.net");
         kirimWA.setPackage("com.whatsapp");
-
         startActivity(kirimWA);
     }
 }
