@@ -2,59 +2,30 @@
 <instant-run
     abi="arm64-v8a,armeabi-v7a,armeabi"
     api-level="22"
-    build-mode="FULL"
+    build-mode="COLD"
     density="xhdpi"
     format="10"
+    ir-eligibility="COMPATIBLE"
     plugin-version="3.0.1"
-    timestamp="1553132632880"
+    timestamp="1554312054591"
     token="6828069146547220529"
-    verifier="FULL_BUILD_REQUESTED" >
+    verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="2961" />
+        duration="3407" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="2924" />
+        duration="49" />
     <task
         name="verifier"
-        duration="2133" />
+        duration="135" />
 
     <artifact
-        location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
-        type="SPLIT" />
-    <artifact
         location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
         type="SPLIT" />
     <artifact
         location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\outputs\apk\debug\app-debug.apk"
@@ -62,8 +33,26 @@
 
     <build
         build-mode="FULL"
-        timestamp="1553132632880"
+        timestamp="1554308226376"
         verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\outputs\apk\debug\app-debug.apk"
+            type="SPLIT_MAIN" />
+        <artifact
+            location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+            type="SPLIT" />
         <artifact
             location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
             type="SPLIT" />
@@ -71,7 +60,25 @@
             location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+            location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+            type="SPLIT" />
+    </build>
+    <build
+        build-mode="COLD"
+        ir-eligibility="CLASS_ADDED"
+        timestamp="1554309622558"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
@@ -83,19 +90,28 @@
             location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
-            type="SPLIT" />
-        <artifact
             location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
             type="SPLIT" />
+    </build>
+    <build
+        build-mode="COLD"
+        ir-eligibility="COMPATIBLE"
+        timestamp="1554310841881"
+        verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            type="SPLIT" />
+    </build>
+    <build
+        build-mode="COLD"
+        ir-eligibility="COMPATIBLE"
+        timestamp="1554312054591"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\outputs\apk\debug\app-debug.apk"

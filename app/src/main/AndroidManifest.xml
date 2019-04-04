@@ -78,9 +78,12 @@
         <!-- android:label="Konfirmasi Pembayaran Admin" -->
         <!-- android:parentActivityName=".Admin.ListPesanan" -->
         <!-- &gt;</activity> -->
-        <activity android:name=".User.KirimPesan"
+        <activity
+            android:name=".User.KirimPesan"
             android:label="Hubungi Penjual"
-            android:parentActivityName=".User.DaftarKatalog"></activity>
+            android:parentActivityName=".User.DaftarKatalog" />
+        <activity android:name=".Admin.EditKatalog" />
+        <activity android:name=".Admin.DetailKatalog"></activity>
     </application>
 
 </manifest>

@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 //import com.sourcey.KauLempung.Admin.DetailProduk;
+import com.sourcey.KauLempung.Admin.DetailKatalog;
 import com.sourcey.KauLempung.Model.Item2;
 import com.sourcey.KauLempung.Model.Produk;
 import com.sourcey.KauLempung.R;
@@ -78,7 +79,7 @@ public class KatalogAdapter extends RecyclerView.Adapter<KatalogAdapter.ItemView
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, final int position) {
 
-         Produk currentItem = mExampleList.get(position);
+         final Produk currentItem = mExampleList.get(position);
 
 //         String[] user = currentItem.user.split("@");
 //
@@ -90,13 +91,14 @@ public class KatalogAdapter extends RecyclerView.Adapter<KatalogAdapter.ItemView
 
         Glide.with(mContext).load(currentItem.getImage()).into(holder.mImagePost);
 
-//        holder.cardViewPost.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent kk = new Intent(mContext, DetailProduk.class);
-//                mContext.startActivity(kk);
-//            }
-//        });
+        holder.cardViewPost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent kk = new Intent(mContext, DetailKatalog.class);
+                kk.putExtra("key",currentItem.getTitle());
+                mContext.startActivity(kk);
+            }
+        });
 
     }
 
