@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\src\main\assets"><file name="fonts/OpenSans-Regular.ttf" path="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\src\main\assets\fonts\OpenSans-Regular.ttf"/></source><source path="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="C:\Users\Kendry Ayu\Downloads\0.RPL\CLONE\KauLempung\app\src\debug\assets"/></dataSet></merger>
