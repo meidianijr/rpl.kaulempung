@@ -83,7 +83,8 @@
             android:label="Hubungi Penjual"
             android:parentActivityName=".User.DaftarKatalog" />
         <activity android:name=".Admin.EditKatalog" />
-        <activity android:name=".Admin.DetailKatalog"></activity>
+        <activity android:name=".Admin.DetailKatalog" />
+        <activity android:name=".LupaPasswordActivity"></activity>
     </application>
 
 </manifest>
