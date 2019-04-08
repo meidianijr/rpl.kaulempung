@@ -28,7 +28,7 @@
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.sourcey.KauLempung.utils.LupaPassword" />
+        <activity android:name="com.sourcey.KauLempung.LupaPassword" />
         <activity
             android:name="com.sourcey.KauLempung.User.MainActivity"
             android:label="@string/app_name" />
@@ -97,11 +97,6 @@
             android:name="com.sourcey.KauLempung.User.KirimPesan"
             android:label="Hubungi Penjual"
             android:parentActivityName="com.sourcey.KauLempung.User.DaftarKatalog" />
-
-        <meta-data
-            android:name="android.support.VERSION"
-            android:value="26.1.0" />
-
         <activity
             android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
             android:excludeFromRecents="true"
