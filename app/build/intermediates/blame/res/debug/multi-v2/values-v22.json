@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Tugas\\RPL\\twelve commit 2\\rpl.kaulempung\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v22\\values-v22.xml",
+            "outputFile": "C:\\Users\\Lenovo\\rpl.kaulempung\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v22\\values-v22.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\X550VX-Zry\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.0.aar\\86ec243e6dc95f01546d76e4a3a0e59c\\res\\values-v22\\values-v22.xml",
+                    "source": "C:\\Users\\Lenovo\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.0.aar\\46f00a5c8f18ed6828e26f85afb62f2c\\res\\values-v22\\values-v22.xml",
                     "from": {
                         "startLines": "2,3,4,9",
                         "startColumns": "4,4,4,4",

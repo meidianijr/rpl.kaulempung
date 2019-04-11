@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Tugas\\RPL\\twelve commit 2\\rpl.kaulempung\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh\\values-zh.xml",
+            "outputFile": "C:\\Users\\Lenovo\\rpl.kaulempung\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh\\values-zh.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\X550VX-Zry\\.gradle\\caches\\transforms-1\\files-1.1\\android-image-cropper-2.4.7.aar\\da097520c8cf221eb189f04f1a903579\\res\\values-zh\\values-zh.xml",
+                    "source": "C:\\Users\\Lenovo\\.gradle\\caches\\transforms-1\\files-1.1\\android-image-cropper-2.4.7.aar\\9f12064cbc62d97d6b9d1de3dbdbf52e\\res\\values-zh\\values-zh.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

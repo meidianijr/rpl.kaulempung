@@ -12,6 +12,8 @@
         android:label="@string/app_name"
         android:largeHeap="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".User.FilterActivity"></activity>
+        <activity android:name="com.sourcey.materialloginexample.FilterAciticy" />
         <activity
             android:name=".User.MainActivity"
             android:label="@string/app_name" />
@@ -31,8 +33,7 @@
         <activity
             android:name=".Admin.TambahKatalog"
             android:label="Tambah Produk"
-            android:parentActivityName=".Admin.KatalogProduk" />
-        <!-- <activity -->
+            android:parentActivityName=".Admin.KatalogProduk" /> <!-- <activity -->
         <!-- android:name=".Admin.EditKatalog" -->
         <!-- android:label="Edit Produk" -->
         <!-- android:parentActivityName=".Admin.KatalogProduk" /> -->
@@ -73,8 +74,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <!-- <activity android:name=".Admin.KonfirmasiPembayaranAdmin" -->
+        </activity> <!-- <activity android:name=".Admin.KonfirmasiPembayaranAdmin" -->
         <!-- android:label="Konfirmasi Pembayaran Admin" -->
         <!-- android:parentActivityName=".Admin.ListPesanan" -->
         <!-- &gt;</activity> -->
@@ -84,7 +84,7 @@
             android:parentActivityName=".User.DaftarKatalog" />
         <activity android:name=".Admin.EditKatalog" />
         <activity android:name=".Admin.DetailKatalog" />
-        <activity android:name=".LupaPasswordActivity"></activity>
+        <activity android:name=".LupaPasswordActivity" />
     </application>
 
 </manifest>

@@ -937,6 +937,7 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable fix
 drawable forebackground
+drawable forgotpass
 drawable gerabah
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
@@ -1031,6 +1032,7 @@ id bottom
 id btn_choose_image
 id btn_login
 id btn_signup
+id button
 id buttonPanel
 id cancel_action
 id cardLayout
@@ -1073,6 +1075,7 @@ id detail
 id dimensions
 id direct
 id disableHome
+id editText
 id edit_alamat
 id edit_barang
 id edit_jmlh
@@ -1110,9 +1113,11 @@ id icon_only
 id ifRoom
 id image
 id imageView
+id imageView3
 id img_post
 id indicator
 id info
+id inputEmail
 id input_address
 id input_email
 id input_mobile
@@ -1126,6 +1131,7 @@ id judul
 id judul_list
 id judul_title
 id k_alamat
+id keteranganlupa
 id komennya
 id komentar
 id largeLabel
@@ -1313,6 +1319,7 @@ layout activity_detail_katalog
 layout activity_detail_produk_user
 layout activity_edit_data
 layout activity_edit_katalog
+layout activity_filter
 layout activity_home_admin
 layout activity_katalogpro
 layout activity_kirim_pesan
