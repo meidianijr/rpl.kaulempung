@@ -31,6 +31,7 @@ import com.sourcey.KauLempung.Adapter.ProdukAdapter;
 import com.sourcey.KauLempung.Adapter.ProdukViewHolder;
 import com.sourcey.KauLempung.Adapter.SearchProdukAdapter;
 import com.sourcey.KauLempung.LoginActivity;
+import com.sourcey.KauLempung.Maps;
 import com.sourcey.KauLempung.Model.Produk;
 import com.sourcey.KauLempung.Model.Produk2;
 import com.sourcey.KauLempung.R;
@@ -246,6 +247,10 @@ public class DaftarKatalog extends AppCompatActivity {
             finish();
         } else if (id == R.id.action_profile){
             startActivity(new Intent(DaftarKatalog.this,ProfilUser.class));
+            finish();
+
+        } else if (id == R.id.action_arah){
+            startActivity(new Intent(DaftarKatalog.this, Maps.class));
             finish();
         }
         return super.onOptionsItemSelected(item);

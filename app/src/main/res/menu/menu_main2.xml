@@ -5,6 +5,9 @@
     <item android:id="@+id/action_profile" android:title="Profil"
         android:orderInCategory="100" app:showAsAction="never" />
 
+    <item android:id="@+id/action_arah" android:title="Petunjuk arah"
+        android:orderInCategory="100" app:showAsAction="never" />
+
     <item android:id="@+id/action_logout" android:title="Keluar"
         android:orderInCategory="100" app:showAsAction="never" />
 </menu>
