@@ -937,7 +937,6 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable fix
 drawable forebackground
-drawable forgotpass
 drawable gerabah
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
@@ -1030,9 +1029,9 @@ id beginning
 id blocking
 id bottom
 id btn_choose_image
+id btn_forgot
 id btn_login
 id btn_signup
-id button
 id buttonPanel
 id cancel_action
 id cardLayout
@@ -1075,7 +1074,6 @@ id detail
 id dimensions
 id direct
 id disableHome
-id editText
 id edit_alamat
 id edit_barang
 id edit_jmlh
@@ -1113,11 +1111,9 @@ id icon_only
 id ifRoom
 id image
 id imageView
-id imageView3
 id img_post
 id indicator
 id info
-id inputEmail
 id input_address
 id input_email
 id input_mobile
@@ -1131,7 +1127,6 @@ id judul
 id judul_list
 id judul_title
 id k_alamat
-id keteranganlupa
 id komennya
 id komentar
 id largeLabel
@@ -1145,6 +1140,7 @@ id link_signup
 id listMode
 id list_item
 id list_recycler
+id lupa_password
 id masked
 id media_actions
 id message
@@ -1152,10 +1148,8 @@ id middle
 id mini
 id multiply
 id namapengguna
-id namaprdk
 id namaprod
 id namaproduk
-id namaprodusen
 id namatoko
 id navigation_header_container
 id never
@@ -1315,11 +1309,8 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_daftar_katalog
-layout activity_detail_katalog
 layout activity_detail_produk_user
 layout activity_edit_data
-layout activity_edit_katalog
-layout activity_filter
 layout activity_home_admin
 layout activity_katalogpro
 layout activity_kirim_pesan
@@ -1436,6 +1427,7 @@ string crop_image_menu_flip_horizontally
 string crop_image_menu_flip_vertically
 string crop_image_menu_rotate_left
 string crop_image_menu_rotate_right
+string default_web_client_id
 string firebase_database_url
 string gcm_defaultSenderId
 string google_api_key

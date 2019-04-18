@@ -1,4 +1,4 @@
-#Wed Apr 03 23:40:39 ICT 2019
-base.0=C\:\\Users\\Kendry Ayu\\Downloads\\0.RPL\\CLONE\\KauLempung\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\42
+#Thu Mar 21 08:44:16 ICT 2019
+base.0=C\:\\Users\\Kendry Ayu\\Downloads\\0.RPL\\CLONE\\KauLempung\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\4
 path.0=classes.dex
 renamed.0=classes.dex

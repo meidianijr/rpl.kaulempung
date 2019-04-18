@@ -3,7 +3,7 @@
   <color name="primary">#730000</color>
   <color name="primary_dark">#f5dc76</color>
   <color name="primary_darker">#ffde59</color>
-  <color name="accent">#fffcfc</color>
+  <color name="accent">#FFFFFF</color>
 
   <color name="black">#000000</color>
   <color name="jet">#222222</color>
@@ -18,6 +18,6 @@
   <color name="orange">#ff8000 </color>
   <color name="yellow">#ffbf00</color>
 
-  <color name="colorRed">#fa2525</color>
+  <color name="colorRed">#D50000</color>
   <color name="colorGreen">#17bc3b</color>
 </resources>

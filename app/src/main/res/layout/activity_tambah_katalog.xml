@@ -63,8 +63,6 @@
                 android:id="@+id/harga"
                 android:hint="Harga"
 
-                android:inputType="number"
-
                 android:layout_width="match_parent"
 
                 android:layout_height="wrap_content"

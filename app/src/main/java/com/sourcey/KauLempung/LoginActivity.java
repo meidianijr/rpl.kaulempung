@@ -29,12 +29,16 @@ import com.sourcey.KauLempung.Admin.KatalogProduk;
 import com.sourcey.KauLempung.User.DaftarKatalog;
 import com.sourcey.KauLempung.User.MainActivity;
 
+import org.w3c.dom.Text;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
     private static final int REQUEST_SIGNUP = 0;
+    private TextView forgotPassword;
+
     FirebaseAuth auth;
     FirebaseAuth.AuthStateListener listener;
     ProgressDialog progressDialog;
@@ -50,6 +54,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
+        forgotPassword = (TextView)findViewById(R.id.lupa_password);
 
         progressDialog = new ProgressDialog(this);
 
@@ -108,6 +113,16 @@ public class LoginActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
             }
         });
+
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // Start the Signup activity
+                startActivity(new Intent(LoginActivity.this, LupaPassword.class));
+            }
+        });
+
     }
 
     //Method untuk menghentikan state
