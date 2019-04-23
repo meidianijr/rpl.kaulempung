@@ -105,6 +105,7 @@ attr cardElevation
 attr cardMaxElevation
 attr cardPreventCornerOverlap
 attr cardUseCompatPadding
+attr cardViewStyle
 attr centered
 attr chainUseRtl
 attr checkboxStyle
@@ -902,6 +903,8 @@ drawable bag
 drawable bri
 drawable button_layout
 drawable button_layout2
+drawable button_login
+drawable button_registrasi
 drawable cancel
 drawable catalog
 drawable common_full_open_on_phone
@@ -940,9 +943,13 @@ drawable forebackground
 drawable gerabah
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable grbh
 drawable guci
 drawable ic_delete
 drawable ic_edit
+drawable ic_email_black_24dp
+drawable ic_lock_black_24dp
+drawable ic_person_black_24dp
 drawable image_1
 drawable image_2
 drawable image_3
@@ -1111,6 +1118,8 @@ id icon_only
 id ifRoom
 id image
 id imageView
+id imageView2
+id imageView3
 id img_post
 id indicator
 id info

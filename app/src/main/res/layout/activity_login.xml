@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@color/primary"
     android:fitsSystemWindows="true">
 
     <LinearLayout
@@ -25,11 +26,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="-15dp"
             android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/input_email"
+
+            <EditText
+                android:id="@+id/input_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_person_black_24dp"
+                android:hint="   Email"
                 android:inputType="textEmailAddress"
-                android:hint="Email" />
+                android:textColorHint="@color/cardview_light_background" />
         </android.support.design.widget.TextInputLayout>
 
         <!--  Password Label -->
@@ -38,11 +43,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/input_password"
+
+            <EditText
+                android:id="@+id/input_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_lock_black_24dp"
+                android:hint="   Password"
                 android:inputType="textPassword"
-                android:hint="Password"/>
+                android:textColorHint="@color/cardview_light_background" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.v7.widget.AppCompatButton
@@ -51,17 +60,31 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp"
+            android:background="@drawable/button_login"
             android:padding="12dp"
             android:text="Login"
-            android:textColor="#730000"/>
+            android:textColor="#730000"
+            android:textSize="18sp" />
 
-        <TextView android:id="@+id/link_signup"
+        <TextView
+            android:id="@+id/link_signup"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/button_registrasi"
+            android:gravity="center"
+            android:text="REGISTRASI"
+            android:textColor="#730000"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/lupa_password"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
-            android:text="Belum punya akun? Buat Akun"
             android:gravity="center"
-            android:textSize="16dip"/>
-
+            android:text="Lupa Password ? KLIK DISINI!"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="16dip" />
     </LinearLayout>
 </ScrollView>

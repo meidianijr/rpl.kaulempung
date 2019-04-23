@@ -29,8 +29,6 @@ import com.sourcey.KauLempung.Admin.KatalogProduk;
 import com.sourcey.KauLempung.User.DaftarKatalog;
 import com.sourcey.KauLempung.User.MainActivity;
 
-import org.w3c.dom.Text;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -48,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
     @BindView(R.id.input_password) EditText _passwordText;
     @BindView(R.id.btn_login) Button _loginButton;
     @BindView(R.id.link_signup) TextView _signupLink;
-    
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -40,13 +40,13 @@
         android:layout_height="wrap_content" />
 
     <Button
-        android:onClick="kirim"
-        android:text="Kirim"
-        android:textColor="#fff"
+        android:layout_width="311dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:background="@drawable/button_layout2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:onClick="kirim"
+        android:text="Kirim"
+        android:textColor="#fff" />
 
 </LinearLayout>
