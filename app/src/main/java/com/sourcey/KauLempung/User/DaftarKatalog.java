@@ -8,13 +8,18 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -38,18 +43,16 @@ import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class DaftarKatalog extends AppCompatActivity {
+public class DaftarKatalog extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     CarouselView carouselView;
     int[] sampleImages = { R.drawable.image_3, R.drawable.image_2, R.drawable.image_4, R.drawable.image_1, R.drawable.image_5};
     private FirebaseAuth mAuth;
 
     private EditText editText;
-
     private RecyclerView recyclerView;
-
-    private RecyclerView.Adapter adapter;
 
     DatabaseReference ref;
 
@@ -59,12 +62,9 @@ public class DaftarKatalog extends AppCompatActivity {
 
     String idUser;
 
-    ArrayList<Produk2> produks;
-
-
-    FirebaseRecyclerOptions<Produk2> firebaseRecyclerAdapter;
-
-    FirebaseRecyclerAdapter<Produk2, ProdukViewHolder> oo;
+    private TextView tvFilter;
+    Spinner filterPrice;
+    List<Produk> mList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,31 +73,62 @@ public class DaftarKatalog extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
+
         if (user == null) {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         } else {
+            tvFilter = findViewById(R.id.tv_filter_harga);
+            tvFilter.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(DaftarKatalog.this, FilterActivity.class));
+                }
+            });
+
+            filterPrice = findViewById(R.id.spinner_harga);
+            ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.filter_harga, android.R.layout.simple_spinner_item);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            filterPrice.setAdapter(adapter);
+            filterPrice.setOnItemSelectedListener(this);
+
+
             carouselView = findViewById(R.id.carouselView);
             carouselView.setPageCount(sampleImages.length);
             carouselView.setImageListener(imageListener);
             idUser = user.getEmail();
+
             ref = FirebaseDatabase.getInstance().getReference().child("katalogproduk");
 
             list = new ArrayList<>();
-            produks = new ArrayList<>();
+            mList = new ArrayList<>();
             katalogAdapter = new ProdukAdapter(this,list);
 
             recyclerView = findViewById(R.id.list_recycler);
-
             recyclerView.setHasFixedSize(true);
-
             recyclerView.setLayoutManager(new GridLayoutManager(this,2));
-
             recyclerView.setAdapter(katalogAdapter);
 
             editText = findViewById(R.id.searchproduk);
 
-            showData();
+            ref.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    list.clear();
+                    for (DataSnapshot data : dataSnapshot.getChildren()) {
+                        Produk cur = data.getValue(Produk.class);
+                        cur.key = data.getKey();
+                        list.add(cur);
+                        mList.add(cur);
+                        katalogAdapter.notifyDataSetChanged();
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
 
             editText.addTextChangedListener(new TextWatcher() {
                 @Override
@@ -115,25 +146,10 @@ public class DaftarKatalog extends AppCompatActivity {
 
                     if (!s.toString().isEmpty()) {
                         setAdapter(s.toString());
-                    }
-
-                }
-            });
-
-            ref.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    list.clear();
-                    for (DataSnapshot data : dataSnapshot.getChildren()) {
-                        Produk cur = data.getValue(Produk.class);
-                        cur.key = data.getKey();
-                        list.add(cur);
+                    }else{
+                        list.addAll(mList);
                         katalogAdapter.notifyDataSetChanged();
                     }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
 
                 }
             });
@@ -141,80 +157,14 @@ public class DaftarKatalog extends AppCompatActivity {
         }
     }
 
-    private void showData() {
-        firebaseRecyclerAdapter = new FirebaseRecyclerOptions.Builder<Produk2>(
-        ).setQuery(ref, Produk2.class).build();
-
-        oo = new FirebaseRecyclerAdapter<Produk2, ProdukViewHolder>(firebaseRecyclerAdapter) {
-            //
-            @NonNull
-            @Override
-            public ProdukViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_katalog, parent, false);
-                return new ProdukViewHolder(view);
-            }
-
-            @Override
-            protected void onBindViewHolder(ProdukViewHolder holder, int position, final Produk2 model) {
-
-                holder.aa.setText(model.getTitle());
-                holder.bb.setText("Rp. " + model.getHarga());
-                holder.bb.setTag(model.getImage());
-
-                Glide.with(DaftarKatalog.this).load(model.getImage()).into(holder.dd);
-
-
-                holder.cc.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent kk = new Intent(DaftarKatalog.this, DetailProdukUser.class);
-                        kk.putExtra("namatoko", model.getNamaprod());
-                        kk.putExtra("key", model.getKey() );
-                        kk.putExtra("judulproduk", model.getTitle());
-                        kk.putExtra("alamattoko", model.getAlamat());
-                        kk.putExtra("tlpntoko", model.getNohp());
-                        kk.putExtra("id", model.getId());
-                        kk.putExtra("gambarproduk", model.getImage());
-                        kk.putExtra("harga", model.getHarga());
-                        startActivity(kk);
-                    }
-                });
-
-            }
-        };
-
-        oo.startListening();
-        recyclerView.setAdapter(oo);
-
-    }
-
     private void setAdapter(String s) {
-        Query firebaseSearchQuery = ref.orderByChild("title").startAt(s).endAt(s + "\uf8ff");
-
-        firebaseSearchQuery.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                if (dataSnapshot.hasChildren()) {
-                    produks.clear();
-
-                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                        final Produk2 userSearch = dataSnapshot1.getValue(Produk2.class);
-                        produks.add(userSearch);
-                    }
-
-                    SearchProdukAdapter searchAdapter = new SearchProdukAdapter(DaftarKatalog.this, produks);
-                    recyclerView.setAdapter(searchAdapter);
-                    searchAdapter.notifyDataSetChanged();
-                }
-
+        list.clear();
+        for (Produk produk : mList){
+            if (produk.title.toLowerCase().contains(s.toLowerCase())){
+                list.add(produk);
             }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+            katalogAdapter.notifyDataSetChanged();
+        }
     }
 
 
@@ -249,5 +199,59 @@ public class DaftarKatalog extends AppCompatActivity {
             finish();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        if (adapterView.getItemAtPosition(i).equals("Harga")){
+            list.clear();
+            list.addAll(mList);
+            katalogAdapter.notifyDataSetChanged();
+        }else {
+            int itemId = (int) adapterView.getItemIdAtPosition(i);
+            switch (itemId) {
+                case 1:
+                    list.clear();
+                    for (Produk produk : mList) {
+                        if (Integer.parseInt(produk.harga) >= 10000 && Integer.parseInt(produk.harga) < 50000) {
+                            list.add(produk);
+                        }
+                    }
+                    katalogAdapter.notifyDataSetChanged();
+                    break;
+                case 2:
+                    list.clear();
+                    for (Produk produk : mList) {
+                        if (Integer.parseInt(produk.harga) >= 50000 && Integer.parseInt(produk.harga) < 100000) {
+                            list.add(produk);
+                        }
+                    }
+                    katalogAdapter.notifyDataSetChanged();
+                    break;
+                case 3:
+                    list.clear();
+                    for (Produk produk : mList) {
+                        if (Integer.parseInt(produk.harga) >= 100000 && Integer.parseInt(produk.harga) < 200000) {
+                            list.add(produk);
+                        }
+                    }
+                    katalogAdapter.notifyDataSetChanged();
+                    break;
+                case 4:
+                    list.clear();
+                    for (Produk produk : mList) {
+                        if (Integer.parseInt(produk.harga) >= 200000 && Integer.parseInt(produk.harga) < 300000) {
+                            list.add(produk);
+                        }
+                    }
+                    katalogAdapter.notifyDataSetChanged();
+                    break;
+            }
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
     }
 }

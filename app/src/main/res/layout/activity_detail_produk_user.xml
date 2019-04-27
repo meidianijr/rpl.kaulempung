@@ -100,14 +100,14 @@
                 android:fontFamily="sans-serif"/>
 
             <Button
-                android:onClick="hubungi"
-                android:layout_gravity="center"
-                android:layout_width="150dp"
+                android:layout_width="202dp"
                 android:layout_height="50dp"
-                android:text="Hubungi Penjual"
+                android:layout_gravity="center"
+                android:background="@drawable/button_layout2"
+                android:onClick="hubungi"
                 android:padding="8dp"
-                android:textColor="@color/primary"
-                android:background="@drawable/button_layout2"/>
+                android:text="Hubungi Penjual"
+                android:textColor="@color/primary" />
 
         </LinearLayout>
 
@@ -130,14 +130,14 @@
                 android:hint="Masukkan Komentar"/>
 
             <Button
-                android:onClick="submit"
-                android:layout_gravity="center"
-                android:layout_width="120dp"
+                android:layout_width="191dp"
                 android:layout_height="50dp"
-                android:text="Submit"
+                android:layout_gravity="center"
+                android:background="@drawable/button_layout2"
+                android:onClick="submit"
                 android:padding="8dp"
-                android:textColor="@color/primary"
-                android:background="@drawable/button_layout2" />
+                android:text="Submit"
+                android:textColor="@color/primary" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_comment"

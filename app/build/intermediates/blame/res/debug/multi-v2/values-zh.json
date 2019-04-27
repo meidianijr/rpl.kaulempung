@@ -1,25 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Kendry Ayu\\Downloads\\0.RPL\\CLONE\\KauLempung\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh\\values-zh.xml",
+            "outputFile": "C:\\Users\\User\\Desktop\\rpl.kaulempung\\rpl.kaulempung\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh\\values-zh.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Kendry Ayu\\.gradle\\caches\\transforms-1\\files-1.1\\android-image-cropper-2.4.7.aar\\bde03927764fd83f9f3b5701cac871e7\\res\\values-zh\\values-zh.xml",
-                    "from": {
-                        "startLines": "2,3,4,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,107,169,232",
-                        "endColumns": "51,61,62,64",
-                        "endOffsets": "102,164,227,292"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "D:\\rpl.kaulempung\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh\\values-zh.xml",
-            "map": [
-                {
-                    "source": "C:\\Users\\ASUS\\.gradle\\caches\\transforms-1\\files-1.1\\android-image-cropper-2.4.7.aar\\ff5a362a383d2a9db835e9ea1c3e8093\\res\\values-zh\\values-zh.xml",
+                    "source": "C:\\Users\\User\\.gradle\\caches\\transforms-1\\files-1.1\\android-image-cropper-2.4.7.aar\\227add449dda738d26681e84ae0dd6ab\\res\\values-zh\\values-zh.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
