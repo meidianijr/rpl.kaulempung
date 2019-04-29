@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Tugas\\RPL\\23 april\\rpl.kaulempung\\rpl.kaulempung\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh\\values-zh.xml",
+            "outputFile": "C:\\Users\\Dian\\Desktop\\rpl.kaulempung\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh\\values-zh.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\X550VX-Zry\\.gradle\\caches\\transforms-1\\files-1.1\\android-image-cropper-2.4.7.aar\\da097520c8cf221eb189f04f1a903579\\res\\values-zh\\values-zh.xml",
+                    "source": "C:\\Users\\Dian\\.gradle\\caches\\transforms-1\\files-1.1\\android-image-cropper-2.4.7.aar\\20f7fefd2b8067731ad544d0c34a0755\\res\\values-zh\\values-zh.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

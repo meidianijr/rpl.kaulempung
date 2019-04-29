@@ -140,6 +140,7 @@ public class SignupActivity extends AppCompatActivity {
                         userMap.put("image", "default");
 
                         mDatabase.setValue(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            // membuat database di firebase
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if(task.isSuccessful()){
@@ -212,7 +213,7 @@ public class SignupActivity extends AppCompatActivity {
         String reEnterPassword = _reEnterPasswordText.getText().toString();
 
         if (name.isEmpty() || name.length() < 3) {
-            _nameText.setError("Minimal image_3 karakter");
+            _nameText.setError("Minimal 3 karakter");
             valid = false;
         } else {
             _nameText.setError(null);

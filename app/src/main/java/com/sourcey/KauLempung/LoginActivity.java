@@ -166,6 +166,8 @@ public class LoginActivity extends AppCompatActivity {
                         FirebaseUser user = auth.getCurrentUser();
                         if (user != null) {
 
+
+                            // cocokin data ke firebase
                             ref = FirebaseDatabase.getInstance().getReference().child("KauLempung").child("user").child(user.getUid()).child("role");
                             ref.addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
@@ -300,7 +302,7 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         if (password.isEmpty() || password.length() < 4) {
-            _passwordText.setError("Password minimal image_4 karakter!");
+            _passwordText.setError("Password minimal 4 karakter!");
             valid = false;
         } else {
             _passwordText.setError(null);

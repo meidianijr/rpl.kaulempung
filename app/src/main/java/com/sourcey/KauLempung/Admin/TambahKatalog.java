@@ -92,6 +92,7 @@ public class TambahKatalog extends AppCompatActivity {
                 pickImage.setType("image/*");
 
                 //Mulai intent untuk memilih foto dan mendapatkan hasil
+                //request code, menampilkan memilih foto hanya 1 kali
                 startActivityForResult(pickImage, 1);
 
             }
@@ -121,8 +122,7 @@ public class TambahKatalog extends AppCompatActivity {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                 //Inisialisasi post untuk disimpan di FirebaseDatabase
-//                Task<Uri> aa = task.getSnapshot().getMetadata().getReference().getDownloadUrl();
-//                stringUri = aa.toString();
+//
                 task.getSnapshot().getMetadata().getReference().getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {

@@ -1,29 +1,26 @@
 package com.sourcey.KauLempung.User;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.Menu;
 import android.view.MenuItem;
 //import com.google.firebase.auth.FirebaseAuth;
 //import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.sourcey.KauLempung.Adapter.ItemAdapter;
-import com.sourcey.KauLempung.Adapter.ItemListAdapter;
 import com.sourcey.KauLempung.Adapter.ItemUserListAdapter;
 import com.sourcey.KauLempung.LoginActivity;
-import com.sourcey.KauLempung.Model.Item;
 import com.sourcey.KauLempung.Model.Item2;
 import com.sourcey.KauLempung.R;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity {
     ArrayList<Item2> exampleItems;
@@ -32,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
 
     FirebaseAuth.AuthStateListener listener;
     private FirebaseAuth mAuth;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

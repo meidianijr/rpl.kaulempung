@@ -13,7 +13,7 @@ import com.sourcey.KauLempung.R;
 import java.util.List;
 
 /**
- * Created by Umam on image_4/17/2018.
+ *
  */
 
 public class CommentAdapter extends  RecyclerView.Adapter<CommentAdapter.CommentHolder> {

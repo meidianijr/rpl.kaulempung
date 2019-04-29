@@ -60,7 +60,7 @@ public class SearchProdukAdapter extends RecyclerView.Adapter<SearchProdukAdapte
         mContext = context;
 
     }
-
+// nyari produk
     @NonNull
     @Override
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -68,7 +68,7 @@ public class SearchProdukAdapter extends RecyclerView.Adapter<SearchProdukAdapte
         ItemViewHolder evh = new ItemViewHolder(v);
         return evh;
     }
-
+// nampilin
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, final int position) {
 
