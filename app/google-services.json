@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "818984922752",
+    "firebase_url": "https://kaulempung.firebaseio.com",
+    "project_id": "kaulempung",
+    "storage_bucket": "kaulempung.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:818984922752:android:a4b0a6895ea3d369",
+        "android_client_info": {
+          "package_name": "com.sourcey.materialloginexample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "818984922752-716hlhlol80972jqut0sbsbl3b2qjuah.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sourcey.materialloginexample",
+            "certificate_hash": "1be9b1c618ed6b4a038eabf3f2dc588c24d9239a"
+          }
+        },
+        {
+          "client_id": "818984922752-ou510c4at7j6pejor3enqad12pgfruna.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sourcey.materialloginexample",
+            "certificate_hash": "36108c86ee98b7d01a471991c1aeffa9c997ee71"
+          }
+        },
+        {
+          "client_id": "818984922752-98uroskje2r4sorh3rkuoi3lqut0f95t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sourcey.materialloginexample",
+            "certificate_hash": "daf1262783612ca2429f43f5ee4041434fdd84f1"
+          }
+        },
+        {
+          "client_id": "818984922752-giae4q17s4kd358kq32jgasvae972rkk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sourcey.materialloginexample",
+            "certificate_hash": "e6adfc7ab60e77707097c8bfff28c35064af7f75"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWaJsCWOfw7dEG_jLK6we3pEFYSkdCfIs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "818984922752-37ipksikb802rklmdqen6l3fjcov01a7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

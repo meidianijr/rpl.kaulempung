@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">KauLempung</string>
+
+    <string name="hello_world">Disini ada Katalog!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_home_admin">HomeAdmin</string>
+    <string-array name="filter_harga">
+        <item>Harga</item>
+        <item>10rb-50rb</item>
+        <item>50rb-100rb</item>
+        <item>100rb-200rb</item>
+        <item>200rb-300rb</item>
+    </string-array>
+</resources>
