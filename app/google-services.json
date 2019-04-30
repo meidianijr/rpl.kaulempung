@@ -39,6 +39,14 @@
           }
         },
         {
+          "client_id": "818984922752-giae4q17s4kd358kq32jgasvae972rkk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sourcey.materialloginexample",
+            "certificate_hash": "e6adfc7ab60e77707097c8bfff28c35064af7f75"
+          }
+        },
+        {
           "client_id": "818984922752-37ipksikb802rklmdqen6l3fjcov01a7.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -49,20 +57,13 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
             {
               "client_id": "818984922752-37ipksikb802rklmdqen6l3fjcov01a7.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
-        },
-        "ads_service": {
-          "status": 2
         }
       }
     }
