@@ -1,9 +1,14 @@
 package com.sourcey.KauLempung.User;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
@@ -13,8 +18,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -66,8 +74,24 @@ public class DaftarKatalog extends AppCompatActivity {
 
     FirebaseRecyclerAdapter<Produk2, ProdukViewHolder> oo;
 
+    SharedPreferences spNight;
+
+    final String PREF_NIGHT_MODE = "NightMode";
+
+    SharedPreferences.Editor editNight;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        spNight = getSharedPreferences(PREF_NIGHT_MODE , Context.MODE_PRIVATE);
+        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES){
+            setTheme(R.style.AppTheme_Dark);
+        }else{
+            setTheme(R.style.AppTheme);
+
+            if(spNight.getBoolean(PREF_NIGHT_MODE,false)){
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            }
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar_katalog);
 
@@ -92,7 +116,11 @@ public class DaftarKatalog extends AppCompatActivity {
 
             recyclerView.setHasFixedSize(true);
 
-            recyclerView.setLayoutManager(new GridLayoutManager(this,2));
+            if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+                recyclerView.setLayoutManager(new GridLayoutManager(this,3));
+            }else{
+                recyclerView.setLayoutManager(new GridLayoutManager(this,2));
+            }
 
             recyclerView.setAdapter(katalogAdapter);
 
@@ -139,6 +167,16 @@ public class DaftarKatalog extends AppCompatActivity {
                 }
             });
 
+        }
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE){
+            recyclerView.setLayoutManager(new GridLayoutManager(this,3));
+        }else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+            recyclerView.setLayoutManager(new GridLayoutManager(this,2));
         }
     }
 
@@ -249,6 +287,38 @@ public class DaftarKatalog extends AppCompatActivity {
             startActivity(new Intent(DaftarKatalog.this,ProfilUser.class));
             finish();
         }
+
+        if (id == R.id.action_about) {
+            Dialog dialog = new Dialog(DaftarKatalog.this);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.setContentView(R.layout.activity_tentang_aplikasi);
+            dialog.setCanceledOnTouchOutside(true);
+            dialog.show();
+        }
+
+        switch (id){
+            case R.id.action_tema :
+                spNight = getSharedPreferences(PREF_NIGHT_MODE , Context.MODE_PRIVATE);
+                if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES){
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    editNight = spNight.edit();
+                    editNight.putBoolean(PREF_NIGHT_MODE, false);
+                    editNight.apply();
+                }else{
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    editNight = spNight.edit();
+                    editNight.putBoolean(PREF_NIGHT_MODE, true);
+                    editNight.apply();
+                }
+                Intent i = new Intent(this, DaftarKatalog.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(i);
+                finish();
+                break;
+
+        }
+
         return super.onOptionsItemSelected(item);
     }
 }
