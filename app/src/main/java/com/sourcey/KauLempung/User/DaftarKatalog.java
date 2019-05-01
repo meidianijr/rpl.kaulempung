@@ -1,9 +1,14 @@
 package com.sourcey.KauLempung.User;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
@@ -13,8 +18,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -38,8 +48,9 @@ import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class DaftarKatalog extends AppCompatActivity {
+public class DaftarKatalog extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     CarouselView carouselView;
     int[] sampleImages = { R.drawable.image_3, R.drawable.image_2, R.drawable.image_4, R.drawable.image_1, R.drawable.image_5};
@@ -66,8 +77,28 @@ public class DaftarKatalog extends AppCompatActivity {
 
     FirebaseRecyclerAdapter<Produk2, ProdukViewHolder> oo;
 
+    SharedPreferences spNight;
+
+    final String PREF_NIGHT_MODE = "NightMode";
+
+    SharedPreferences.Editor editNight;
+
+    private TextView tvFilter;
+    Spinner filterPrice;
+    List<Produk> mList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        spNight = getSharedPreferences(PREF_NIGHT_MODE , Context.MODE_PRIVATE);
+        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES){
+            setTheme(R.style.AppTheme_Dark);
+        }else{
+            setTheme(R.style.AppTheme);
+
+            if(spNight.getBoolean(PREF_NIGHT_MODE,false)){
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            }
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar_katalog);
 
@@ -77,6 +108,21 @@ public class DaftarKatalog extends AppCompatActivity {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         } else {
+            tvFilter = findViewById(R.id.tv_filter_harga);
+            tvFilter.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(DaftarKatalog.this, FilterActivity.class));
+                }
+            });
+
+            filterPrice = findViewById(R.id.spinner_harga);
+            ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.filter_harga, android.R.layout.simple_spinner_item);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            filterPrice.setAdapter(adapter);
+            filterPrice.setOnItemSelectedListener(this);
+
+
             carouselView = findViewById(R.id.carouselView);
             carouselView.setPageCount(sampleImages.length);
             carouselView.setImageListener(imageListener);
@@ -85,13 +131,18 @@ public class DaftarKatalog extends AppCompatActivity {
 
             list = new ArrayList<>();
             produks = new ArrayList<>();
+            mList = new ArrayList<>();
             katalogAdapter = new ProdukAdapter(this,list);
 
             recyclerView = findViewById(R.id.list_recycler);
 
             recyclerView.setHasFixedSize(true);
 
-            recyclerView.setLayoutManager(new GridLayoutManager(this,2));
+            if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+                recyclerView.setLayoutManager(new GridLayoutManager(this,3));
+            }else{
+                recyclerView.setLayoutManager(new GridLayoutManager(this,2));
+            }
 
             recyclerView.setAdapter(katalogAdapter);
 
@@ -138,6 +189,16 @@ public class DaftarKatalog extends AppCompatActivity {
                 }
             });
 
+        }
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE){
+            recyclerView.setLayoutManager(new GridLayoutManager(this,3));
+        }else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+            recyclerView.setLayoutManager(new GridLayoutManager(this,2));
         }
     }
 
@@ -246,8 +307,93 @@ public class DaftarKatalog extends AppCompatActivity {
             finish();
         } else if (id == R.id.action_profile){
             startActivity(new Intent(DaftarKatalog.this,ProfilUser.class));
-            finish();
         }
+
+        if (id == R.id.action_about) {
+            Dialog dialog = new Dialog(DaftarKatalog.this);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.setContentView(R.layout.activity_tentang_aplikasi);
+            dialog.setCanceledOnTouchOutside(true);
+            dialog.show();
+        }
+
+        switch (id){
+            case R.id.action_tema :
+                spNight = getSharedPreferences(PREF_NIGHT_MODE , Context.MODE_PRIVATE);
+                if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES){
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    editNight = spNight.edit();
+                    editNight.putBoolean(PREF_NIGHT_MODE, false);
+                    editNight.apply();
+                }else{
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    editNight = spNight.edit();
+                    editNight.putBoolean(PREF_NIGHT_MODE, true);
+                    editNight.apply();
+                }
+                Intent i = new Intent(this, DaftarKatalog.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(i);
+                finish();
+                break;
+
+        }
+
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        if (adapterView.getItemAtPosition(i).equals("Harga")){
+            list.clear();
+            list.addAll(mList);
+            katalogAdapter.notifyDataSetChanged();
+        }else {
+            int itemId = (int) adapterView.getItemIdAtPosition(i);
+            switch (itemId) {
+                case 1:
+                    list.clear();
+                    for (Produk produk : mList) {
+                        if (Integer.parseInt(produk.harga) >= 10000 && Integer.parseInt(produk.harga) < 50000) {
+                            list.add(produk);
+                        }
+                    }
+                    katalogAdapter.notifyDataSetChanged();
+                    break;
+                case 2:
+                    list.clear();
+                    for (Produk produk : mList) {
+                        if (Integer.parseInt(produk.harga) >= 50000 && Integer.parseInt(produk.harga) < 100000) {
+                            list.add(produk);
+                        }
+                    }
+                    katalogAdapter.notifyDataSetChanged();
+                    break;
+                case 3:
+                    list.clear();
+                    for (Produk produk : mList) {
+                        if (Integer.parseInt(produk.harga) >= 100000 && Integer.parseInt(produk.harga) < 200000) {
+                            list.add(produk);
+                        }
+                    }
+                    katalogAdapter.notifyDataSetChanged();
+                    break;
+                case 4:
+                    list.clear();
+                    for (Produk produk : mList) {
+                        if (Integer.parseInt(produk.harga) >= 200000 && Integer.parseInt(produk.harga) < 300000) {
+                            list.add(produk);
+                        }
+                    }
+                    katalogAdapter.notifyDataSetChanged();
+                    break;
+            }
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
     }
 }

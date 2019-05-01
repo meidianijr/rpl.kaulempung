@@ -5,6 +5,14 @@
     <item android:id="@+id/action_profile" android:title="Profil"
         android:orderInCategory="100" app:showAsAction="never" />
 
+    <item android:id="@+id/action_tema" android:title="Ganti Tema"
+        android:orderInCategory="100" app:showAsAction="never"/>
+
+    <item android:id="@+id/action_about" android:title="Tentang"
+        android:orderInCategory="100" app:showAsAction="never"/>
+
+
     <item android:id="@+id/action_logout" android:title="Keluar"
         android:orderInCategory="100" app:showAsAction="never" />
+
 </menu>

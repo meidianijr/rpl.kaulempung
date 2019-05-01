@@ -72,7 +72,7 @@ public class KatalogProduk extends AppCompatActivity {
 
         recyclerView.setAdapter(katalogAdapter);
 
-//        setSwipeForRecyclerView();
+        setSwipeForRecyclerView();
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -148,22 +148,22 @@ public class KatalogProduk extends AppCompatActivity {
         swipeHelper.setLeftcolorCode(ContextCompat.getColor(this, R.color.colorRed));
 
 
-//        SwipeUtilEdit swipeHelpers = new SwipeUtilEdit(0, ItemTouchHelper.RIGHT, this) {
-//            @Override
-//            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-//                int position = viewHolder.getAdapterPosition();
-//                KatalogAdapter adapter = (KatalogAdapter) recyclerView.getAdapter();
-//
-//                Intent ag = new Intent(KatalogProduk.this, EditKatalog.class);
-//                startActivity(ag);
-//
-//                adapter.notifyDataSetChanged();
-//            }
-//        };
-//
-//        ItemTouchHelper mItemTouchHelpers = new ItemTouchHelper(swipeHelpers);
-//        mItemTouchHelpers.attachToRecyclerView(recyclerView);
-//        swipeHelpers.setLeftcolorCode(ContextCompat.getColor(this, R.color.colorGreen));
+        SwipeUtilEdit swipeHelpers = new SwipeUtilEdit(0, ItemTouchHelper.RIGHT, this) {
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                int position = viewHolder.getAdapterPosition();
+                KatalogAdapter adapter = (KatalogAdapter) recyclerView.getAdapter();
+
+                Intent ag = new Intent(KatalogProduk.this, EditKatalog.class);
+                startActivity(ag);
+
+                adapter.notifyDataSetChanged();
+            }
+        };
+
+        ItemTouchHelper mItemTouchHelpers = new ItemTouchHelper(swipeHelpers);
+        mItemTouchHelpers.attachToRecyclerView(recyclerView);
+        swipeHelpers.setLeftcolorCode(ContextCompat.getColor(this, R.color.colorGreen));
 
 
     }
