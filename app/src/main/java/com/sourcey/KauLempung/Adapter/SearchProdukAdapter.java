@@ -82,6 +82,7 @@ public class SearchProdukAdapter extends RecyclerView.Adapter<SearchProdukAdapte
 
         Glide.with(mContext).load(currentItem.getImage()).into(holder.mImagePost);
 
+        // setOnListener untuk memindah data ketika menuliskan pada kolom search pada UI
         holder.mDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
