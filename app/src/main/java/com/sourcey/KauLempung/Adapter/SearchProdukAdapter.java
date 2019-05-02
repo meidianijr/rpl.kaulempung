@@ -18,7 +18,6 @@ import com.sourcey.KauLempung.R;
 import com.sourcey.KauLempung.User.DetailProdukUser;
 
 import java.util.List;
-
 public class SearchProdukAdapter extends RecyclerView.Adapter<SearchProdukAdapter.ItemViewHolder> {
 
     //definisi untuk ArrayList -> ini kita gunakan krena kita menggunkan list
